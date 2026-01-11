@@ -1,0 +1,72 @@
+  # ==============================================
+  # Spring Boot Application Configuration File
+  # File: application.yml
+  # Purpose: Defines application name, database,
+  # JPA/Hibernate behavior, H2 console, and server
+  # ==============================================
+
+  spring:
+    # ----------------------------------------------
+    # Application level configuration
+    # ----------------------------------------------
+    application:
+      # Logical name of the Spring Boot application
+      # Used in logs, monitoring, and Spring Cloud
+      name: accounts
+
+    # ----------------------------------------------
+    # Datasource configuration (Database settings)
+    # ----------------------------------------------
+    datasource:
+      # JDBC URL for H2 in-memory database
+      # 'mem' means data is stored in RAM
+      # 'testdb' is the database name
+      url: jdbc:h2:mem:testdb
+
+      # JDBC Driver class for H2 database
+      driver-class-name: org.h2.Driver
+
+      # Default username for H2
+      username: sa
+
+      # Password for H2 (empty by default)
+      password: ''
+
+    # ----------------------------------------------
+    # H2 Database Web Console configuration
+    # ----------------------------------------------
+    h2:
+      console:
+        # Enables browser-based H2 console
+        enabled: true
+
+        # URL path to access H2 console
+        # Access via: http://localhost:8080/h2-console
+        path: /h2-console
+
+    # ----------------------------------------------
+    # JPA & Hibernate configuration
+    # ----------------------------------------------
+    jpa:
+      # Prints SQL queries executed by Hibernate
+      # Useful for debugging and learning
+      show-sql: true
+
+      # Specifies SQL dialect for H2 database
+      # Helps Hibernate generate correct SQL
+      database-platform: org.hibernate.dialect.H2Dialect
+
+      hibernate:
+        # Controls database schema generation
+        # update       → updates schema without data loss
+        # create       → drops & recreates schema
+        # create-drop  → creates on startup, drops on shutdown
+        # validate     → validates schema only
+        ddl-auto: update
+
+  # ----------------------------------------------
+  # Server configuration
+  # ----------------------------------------------
+  server:
+    # Port on which embedded Tomcat server runs
+    port: 8080
