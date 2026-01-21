@@ -95,13 +95,23 @@
 
 	<build>
 		<plugins>
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<image>-->
+<!--						<name>moazzam21/${project.artifactId}:v1</name>-->
+<!--					</image>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.5.1</version>
 				<configuration>
-					<image>
-						<name>moazzam21/${project.artifactId}:v1</name>
-					</image>
+					<to>
+						<image>moazzam21/${project.artifactId}:v2</image>
+					</to>
 				</configuration>
 			</plugin>
 		</plugins>

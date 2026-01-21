@@ -13,6 +13,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +23,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
+//@AllArgsConstructor
 @Validated
 public class CardsController {
     private final ICardsService iCardsService;
+
+    @Autowired
+    public CardsController(ICardsService iCardsService) {
+        this.iCardsService = iCardsService;
+    }
+
+    @Value("${build.version}")
+    private String buildVersion;
 
     @Operation(
             summary = "Create Card REST API",
@@ -149,5 +159,30 @@ public class CardsController {
                     .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+
+    @Operation(
+            summary = "Get Application's Build Information",
+            description = "Get build-version that is deployed into cards microservice"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildInfo(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
     }
 }

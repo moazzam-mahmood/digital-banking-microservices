@@ -4,7 +4,6 @@
   # Purpose: Defines application name, database,
   # JPA/Hibernate behavior, H2 console, and server
   # ==============================================
-
   spring:
     # ----------------------------------------------
     # Application level configuration
@@ -63,10 +62,22 @@
         # create-drop  → creates on startup, drops on shutdown
         # validate     → validates schema only
         ddl-auto: update
-
   # ----------------------------------------------
   # Server configuration
   # ----------------------------------------------
   server:
     # Port on which embedded Tomcat server runs
     port: 8080
+
+  build:
+    version: "1.0"
+
+  accounts:
+    message: "Welcome to DigiBank accounts related local APIs "
+    contactDetails:
+      name: "John Doe - Developer"
+      email: "john@digibank.com"
+    onCallSupport:
+      - (555) 555-1234
+      - (555) 523-1345
+
