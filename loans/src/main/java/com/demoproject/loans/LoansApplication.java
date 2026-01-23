@@ -1,5 +1,6 @@
 package com.demoproject.loans;
 
+import com.demoproject.loans.dto.LoansContactInfoDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -7,6 +8,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
@@ -16,6 +18,7 @@ mention specifically the location of components and entities
 @ComponentScans({ @ComponentScan("com.demoproject.loans.controller") })
 @EnableJpaRepositories("com.demoproject.loans.repository")
 @EntityScan("com.demoproject.loans.model")*/
+@EnableConfigurationProperties(value = {LoansContactInfoDto.class})
 @OpenAPIDefinition(
 		info = @Info(
 				title = "Loans microservice REST API Documentation",

@@ -62,6 +62,18 @@
         # create-drop  → creates on startup, drops on shutdown
         # validate     → validates schema only
         ddl-auto: update
+
+    config:
+      import:
+        - "application_qa.yml"
+        - "application_prod.yml"
+
+    profiles:
+      active:
+        - "qa"
+
+
+
   # ----------------------------------------------
   # Server configuration
   # ----------------------------------------------
@@ -70,7 +82,7 @@
     port: 8080
 
   build:
-    version: "1.0"
+    version: "3.0"
 
   accounts:
     message: "Welcome to DigiBank accounts related local APIs "

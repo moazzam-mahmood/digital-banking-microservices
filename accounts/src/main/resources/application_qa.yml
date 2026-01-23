@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to DigiBank accounts related QA APIs "
+  contactDetails:
+    name: "John Doe - QA Lead"
+    email: "john@digibank.com"
+  onCallSupport:
+    - (555) 513-1354
+    - (555) 423-6345
