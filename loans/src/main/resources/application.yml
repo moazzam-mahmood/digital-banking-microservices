@@ -9,6 +9,11 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: ''
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   h2:
     console:
       enabled: true
@@ -17,13 +22,24 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-  config:
-    import:
-      - "application_prod.yml"
-      - "application_qa.yml"
-  profiles:
-    active:
-      - "qa"
 
-build:
-  version: "1.0"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  profiles:
+    active: qa
+#  config:
+#    import:
+#      - "application_prod.yml"
+#      - "application_qa.yml"
+#  profiles:
+#    active:
+#      - "qa"
+#
+#build:
+#  version: "1.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

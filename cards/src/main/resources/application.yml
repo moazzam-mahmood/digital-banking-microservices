@@ -8,6 +8,11 @@ spring:
     username: sa
     password: ''
     driver-class-name: org.h2.Driver
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
   h2:
     console:
       enabled: true
@@ -16,21 +21,32 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
   config:
-    import:
-      - "application_prod.yml"
-      - "application_qa.yml"
+    import: "optional:configserver:http://localhost:8071/"
   profiles:
-    active: "prod"
+    active: qa
 
-build:
-  version: "1.0"
+#  config:
+#    import:
+#      - "application_prod.yml"
+#      - "application_qa.yml"
+#  profiles:
+#    active: "prod"
+#
+#build:
+#  version: "1.0"
+#
+#cards:
+#  message: "Welcome to DigiBank cards related local APIs "
+#  contactDetails:
+#    name: "Dragos Lech - Developer"
+#    email: "dragos@eazybank.com"
+#  onCallSupport:
+#    - (412) 419-3491
 
-cards:
-  message: "Welcome to DigiBank cards related local APIs "
-  contactDetails:
-    name: "Dragos Lech - Developer"
-    email: "dragos@eazybank.com"
-  onCallSupport:
-    - (412) 419-3491
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

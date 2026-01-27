@@ -1,0 +1,10 @@
+build:
+  version: "1.0"
+loans:
+  message: "Welcome to EazyBank loans related local APIs "
+  contactDetails:
+    name: "Cyrano Marita - Developer"
+    email: "cyrano@digibank.com"
+  onCallSupport:
+    - (785) 545-8565
+    - (853) 546-5467

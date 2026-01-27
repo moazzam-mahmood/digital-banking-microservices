@@ -12,7 +12,16 @@
       # Logical name of the Spring Boot application
       # Used in logs, monitoring, and Spring Cloud
       name: accounts
-
+    profiles:
+      active: prod
+    config:
+      import: "optional:configserver:http://localhost:8071/"
+    rabbitmq:
+      host: localhost
+      port: 5672
+      stream:
+        username: "guest"
+        password: "guest"
     # ----------------------------------------------
     # Datasource configuration (Database settings)
     # ----------------------------------------------
@@ -62,34 +71,39 @@
         # create-drop  → creates on startup, drops on shutdown
         # validate     → validates schema only
         ddl-auto: update
+#
+#    config:
+#      import:
+#        - "application_qa.yml"
+#        - "application_prod.yml"
+#
+#    profiles:
+#      active:
+#        - "qa"
 
-    config:
-      import:
-        - "application_qa.yml"
-        - "application_prod.yml"
+#
+#
+#  # ----------------------------------------------
+#  # Server configuration
+#  # ----------------------------------------------
+#  server:
+#    # Port on which embedded Tomcat server runs
+#    port: 8080
+#
+#  build:
+#    version: "3.0"
+#
+#  accounts:
+#    message: "Welcome to DigiBank accounts related local APIs "
+#    contactDetails:
+#      name: "John Doe - Developer"
+#      email: "john@digibank.com"
+#    onCallSupport:
+#      - (555) 555-1234
+#      - (555) 523-1345
 
-    profiles:
-      active:
-        - "qa"
-
-
-
-  # ----------------------------------------------
-  # Server configuration
-  # ----------------------------------------------
-  server:
-    # Port on which embedded Tomcat server runs
-    port: 8080
-
-  build:
-    version: "3.0"
-
-  accounts:
-    message: "Welcome to DigiBank accounts related local APIs "
-    contactDetails:
-      name: "John Doe - Developer"
-      email: "john@digibank.com"
-    onCallSupport:
-      - (555) 555-1234
-      - (555) 523-1345
-
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
