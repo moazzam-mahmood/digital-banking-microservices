@@ -5,23 +5,19 @@ spring:
   application:
     name: loans
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: ''
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-  h2:
-    console:
-      enabled: true
+    url: jdbc:mysql://localhost:3308/loansdb
+    username: root
+    password: root
+  sql:
+    init:
+      mode: always
+  #  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
   jpa:
     show-sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update
 
   config:
     import: "optional:configserver:http://localhost:8071/"

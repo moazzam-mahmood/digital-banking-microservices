@@ -13,11 +13,11 @@
             timeout: 5
             clone-on-start: true
             force-pull: true
-    rabbitmq:
-      host: localhost
-      port: 5672
-      username: guest
-      password: guest
+#    rabbitmq:
+#      host: localhost
+#      port: 5672
+#      username: guest
+#      password: guest
   #       native:
 #           search-locations: "file:///C://Users//moazz//Documents//config"
 #           search-locations: "classpath:/config"

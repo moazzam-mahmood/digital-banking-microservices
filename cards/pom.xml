@@ -46,10 +46,10 @@
 		</dependency>
 
 		<!-- Spring cloud bus -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
+<!--		</dependency>-->
 
 		<!-- JPA -->
 		<dependency>
@@ -70,9 +70,14 @@
 		</dependency>
 
 		<!-- DB -->
+<!--		<dependency>-->
+<!--			<groupId>com.h2database</groupId>-->
+<!--			<artifactId>h2</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -140,7 +145,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>moazzam21/${project.artifactId}:v2</image>
+						<image>moazzam21/${project.artifactId}:v3</image>
 					</to>
 				</configuration>
 			</plugin>
