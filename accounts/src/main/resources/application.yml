@@ -5,38 +5,27 @@
   # JPA/Hibernate behavior, H2 console, and server
   # ==============================================
   spring:
-    # ----------------------------------------------
-    # Application level configuration
-    # ----------------------------------------------
     application:
-      # Logical name of the Spring Boot application
-      # Used in logs, monitoring, and Spring Cloud
       name: accounts
     profiles:
       active: prod
     config:
       import: "optional:configserver:http://localhost:8071/"
-    rabbitmq:
-      host: localhost
-      port: 5672
-      stream:
-        username: "guest"
-        password: "guest"
-    # ----------------------------------------------
-    # Datasource configuration (Database settings)
-    # ----------------------------------------------
+#    rabbitmq:
+#      host: localhost
+#      port: 5672
+#      stream:
+#        username: "guest"
+#        password: "guest"
     datasource:
       # JDBC URL for H2 in-memory database
       # 'mem' means data is stored in RAM
       # 'testdb' is the database name
       url: jdbc:h2:mem:testdb
-
       # JDBC Driver class for H2 database
       driver-class-name: org.h2.Driver
-
       # Default username for H2
       username: sa
-
       # Password for H2 (empty by default)
       password: ''
 
@@ -107,3 +96,25 @@
       web:
         exposure:
           include: "*"
+    endpoint:
+      shutdown:
+        enabled: true
+    info:
+      env:
+        enabled: true
+  eureka:
+    instance:
+      prefer-ip-address: true
+    client:
+      fetch-registry: true
+      register-with-eureka: true
+      serviceUrl:
+        defaultZone: http://localhost:8070/eureka/
+  info:
+    app:
+      name: "accounts"
+      description: "Digi-Bank Accounts Application"
+      version: "1.0.0"
+  server:
+    port: 8080
+

@@ -9,11 +9,13 @@ import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 @EnableConfigurationProperties(value = {AccountsContactInfoDto.class})
+@EnableFeignClients
 /* If all my classes are in different package then we have to
 mention specifically the location of components and entities
 @ComponentScans({ @ComponentScan("com.demoproject.accounts.controller") })

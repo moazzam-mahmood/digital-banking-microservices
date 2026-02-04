@@ -38,10 +38,22 @@
 		</dependency>
 
 		<!-- Spring cloud bus -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
+<!--		</dependency>-->
+
+		<!-- Spring eureka client registry -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
 
 		<!-- JPA -->
 		<dependency>
@@ -114,7 +126,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>moazzam21/${project.artifactId}:v2</image>
+						<image>moazzam21/${project.artifactId}:v4</image>
 					</to>
 				</configuration>
 			</plugin>

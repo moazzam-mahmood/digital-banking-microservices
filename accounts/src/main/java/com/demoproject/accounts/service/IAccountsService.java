@@ -1,6 +1,6 @@
 package com.demoproject.accounts.service;
 
-import com.demoproject.accounts.dto.CustomerDto;
+import com.demoproject.accounts.dto.*;
 
 public interface IAccountsService {
 

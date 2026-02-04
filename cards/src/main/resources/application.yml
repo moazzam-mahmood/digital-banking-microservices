@@ -8,11 +8,11 @@ spring:
     username: sa
     password: ''
     driver-class-name: org.h2.Driver
-  rabbitmq:
-    host: localhost
-    username: guest
-    password: guest
-    port: 5672
+#  rabbitmq:
+#    host: localhost
+#    username: guest
+#    password: guest
+#    port: 5672
   h2:
     console:
       enabled: true
@@ -50,3 +50,22 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+info:
+  app:
+    name: "loans"
+    description: "Digi-Bank Loans Application"
+    version: "1.0.0"
