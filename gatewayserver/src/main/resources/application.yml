@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: gatewayserver
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: gatewayserver
+    description: "Digi-Bank Gateway Server Application"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      demoproject:
+        gatewayserver: DEBUG

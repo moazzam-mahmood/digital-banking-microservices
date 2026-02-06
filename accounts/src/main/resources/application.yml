@@ -99,8 +99,16 @@
     endpoint:
       shutdown:
         enabled: true
+      health:
+        probes:
+          enabled: true
     info:
       env:
+        enabled: true
+    health:
+      livenessstate:
+        enabled: true
+      readinessstate:
         enabled: true
   eureka:
     instance:
@@ -117,4 +125,10 @@
       version: "1.0.0"
   server:
     port: 8080
+  logging:
+    level:
+      com:
+        demoproject:
+          accounts: DEBUG
+
 

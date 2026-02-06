@@ -53,8 +53,16 @@ management:
   endpoint:
     shutdown:
       enabled: true
+    health:
+      probes:
+        enabled: true
   info:
     env:
+      enabled: true
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
       enabled: true
 eureka:
   instance:
@@ -69,3 +77,8 @@ info:
     name: "loans"
     description: "Digi-Bank Loans Application"
     version: "1.0.0"
+logging:
+  level:
+    com:
+      demoproject:
+        cards: DEBUG
