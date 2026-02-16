@@ -145,7 +145,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>moazzam21/${project.artifactId}:v5</image>
+						<image>moazzam21/${project.artifactId}:v6</image>
 					</to>
 				</configuration>
 			</plugin>
